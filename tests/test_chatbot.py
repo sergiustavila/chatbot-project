@@ -1,21 +1,26 @@
 """ Unit tests docstring """
-from fastapi.testclient import TestClient
+import pytest
 from app.chatbot import app
 
-client = TestClient(app)
+@pytest.fixture
+def api_client():
+    """Defining client"""
+    app.config['TESTING'] = True
+    with app.test_client() as client:
+        yield client
 
-
-def test_health_root():
+#pylint: disable=W0621
+def test_health_root(api_client):
     """Function docstring"""
-    response = client.get("/health")
+    response = api_client.get("/healthcheck")
 
     assert response.status_code == 200
-    assert response.json() == {'status': 'Chatbot is healthy'}
+    assert response.json == {'status': 'Chatbot is healthy'}
 
-
-def test_version_root():
+#pylint: disable=W0621
+def test_version_root(api_client):
     """Function docstring"""
-    response = client.get("/version")
+    response = api_client.get("/version")
 
     assert response.status_code == 200
-    assert response.json() == {"version": "1.0.0"}
+    assert response.json == {"version": "1.0.0"}

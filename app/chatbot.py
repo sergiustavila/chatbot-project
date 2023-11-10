@@ -1,3 +1,4 @@
+""" Module docstring """
 from flask import Flask, jsonify, request
 import openai
 
@@ -6,10 +7,9 @@ app = Flask(__name__)
 # Set OpenAI API key
 openai.api_key = "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"
 
-
-# /message endpoint
 @app.route("/message", methods=["POST"])
-def message():
+def send_message():
+    """Message endpoint"""
     data = request.get_json()
     message = data.get("message")
 
@@ -26,17 +26,15 @@ def message():
 
     return jsonify({"response": response["choices"][0]["message"]["content"]})
 
-
-# /healthcheck endpoint
 @app.route("/healthcheck")
 def healthcheck():
+    """Healthcheck endpoint"""
     return jsonify({"status": "Chatbot is healthy"})
 
-
-# /version endpoint
 @app.route("/version")
-def version():
-    with open("VERSION", "r") as file:
+def get_version():
+    """Version endpoint"""
+    with open("VERSION", "r", encoding='utf-8') as file:
         version = file.read().strip()
         return jsonify({"version": version})
 

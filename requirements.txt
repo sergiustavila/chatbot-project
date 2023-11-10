@@ -1,10 +1,9 @@
 Flask
 openai
-fastapi
-httpx
 
 pylint
 pytest
 mypy
+coverage
 
 black

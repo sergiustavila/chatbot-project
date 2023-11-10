@@ -1,0 +1,10 @@
+Flask
+openai
+fastapi
+httpx
+
+pylint
+pytest
+mypy
+
+black

@@ -50,6 +50,9 @@ jobs:
         destination: ./docs
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v2
+      with:
+        source: ./source
+        destination: ./docs
 
   # Deployment job
   deploy:

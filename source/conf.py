@@ -1,19 +1,12 @@
-# Configuration file for the Sphinx documentation builder.
+""" Configuration file for the Sphinx documentation builder. """
 #
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-
-project = 'ChatBot docs'
-copyright = '2023, Sergiu'
-author = 'Sergiu'
-
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-import sphinx_rtd_theme
+from typing import List
 
 extensions = [
     "sphinx_rtd_theme",
@@ -23,17 +16,20 @@ extensions = [
     "sphinx.ext.autosummary",
     "sphinx.ext.intersphinx",
     "recommonmark",
-    "sphinx.ext.githubpages"
+    "sphinx.ext.githubpages",
 ]
 
-templates_path = ['_templates']
-exclude_patterns = []
+templates_path = ["_templates"]
+exclude_patterns: List[str] = []
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'sphinx_rtd_theme'
-html_static_path = ['_static']
+#pylint: disable=C0103
+html_theme = "sphinx_rtd_theme"
+html_static_path = ["_static"]
+
 
 def setup(app):
-    app.add_css_file('my_theme.css')
+    """Setup css"""
+    app.add_css_file("my_theme.css")

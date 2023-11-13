@@ -50,5 +50,5 @@ OpenAI ChatBot API documentation!
   - An unhealthy response returns 500 Internal Server Error.
 
 - **Response Body**
-  - A healthy response looks like: "status": "Chatbot is healthy".
+  - A healthy response looks like: "message": "Response".
   - An unhealthy response might include details about the error, e.g., "status": "Error", "message": "Internal server error".

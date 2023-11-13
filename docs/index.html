@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to Curs Doc as Code’s documentation! &mdash; ChatBot docs  documentation</title>
+  <title>OpenAI ChatBot API documentation! &mdash; Python  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/my_theme.css" type="text/css" />
@@ -31,7 +31,7 @@
           
           
           <a href="#" class="icon icon-home">
-            ChatBot docs
+            Python
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -43,8 +43,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to Curs Doc as Code’s documentation!</a><ul>
-<li><a class="reference internal" href="#java-developer-and-devops-engineer"><em>Java Developer and DevOps engineer</em></a></li>
+<li><a class="reference internal" href="#">OpenAI ChatBot API documentation!</a><ul>
+<li><a class="reference internal" href="#healthcheck-route"><em>/healthcheck</em> route</a></li>
+<li><a class="reference internal" href="#version-route"><em>/version</em> route</a></li>
+<li><a class="reference internal" href="#message-route"><em>/message</em> route</a></li>
 </ul>
 </li>
 </ul>
@@ -55,7 +57,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">ChatBot docs</a>
+          <a href="#">Python</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -63,7 +65,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Welcome to Curs Doc as Code’s documentation!</li>
+      <li class="breadcrumb-item active">OpenAI ChatBot API documentation!</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -73,42 +75,50 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="welcome-to-curs-doc-as-code-s-documentation">
-<h1>Welcome to Curs Doc as Code’s documentation!<a class="headerlink" href="#welcome-to-curs-doc-as-code-s-documentation" title="Link to this heading"></a></h1>
+  <section id="openai-chatbot-api-documentation">
+<h1>OpenAI ChatBot API documentation!<a class="headerlink" href="#openai-chatbot-api-documentation" title="Link to this heading"></a></h1>
 <p><strong>Sergiu Stavila</strong></p>
-<section id="java-developer-and-devops-engineer">
-<h2><em>Java Developer and DevOps engineer</em><a class="headerlink" href="#java-developer-and-devops-engineer" title="Link to this heading"></a></h2>
-<dl class="field-list simple">
-<dt class="field-odd">Limbajele de programare preferate<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p>Java</p></li>
-<li><p>PHP</p></li>
-<li><p>Python</p></li>
-<li><p>C++</p></li>
+<section id="healthcheck-route">
+<h2><em>/healthcheck</em> route<a class="headerlink" href="#healthcheck-route" title="Link to this heading"></a></h2>
+<p><strong>Return chatbot health status</strong></p>
+<ul class="simple">
+<li><p><strong>HTTP Method</strong>
+- Http GET Method</p></li>
+<li><p><strong>Response Codes</strong>
+- A healthy response returns 200 OK status code.
+- An unhealthy response returns 500 Internal Server Error.</p></li>
+<li><p><strong>Response Body</strong>
+- A healthy response looks like: “status”: “Chatbot is healthy”.
+- An unhealthy response might include details about the error, e.g., “status”: “Error”, “message”: “Internal server error”.</p></li>
 </ul>
-</dd>
-<dt class="field-even">Hobiuri<span class="colon">:</span></dt>
-<dd class="field-even"><ol class="arabic simple">
-<li><p>Traveling</p></li>
-<li><p>Odihna in natura</p></li>
-<li><p>Citit</p></li>
-<li><p>Sport</p></li>
-</ol>
-</dd>
-<dt class="field-odd">Gen de filme preferate<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p>Adventure</p></li>
-<li><p>Comedies</p></li>
-<li><p>Action</p></li>
+</section>
+<section id="version-route">
+<h2><em>/version</em> route<a class="headerlink" href="#version-route" title="Link to this heading"></a></h2>
+<p><strong>Returns the version of the chatbot stored in a VERSION file</strong></p>
+<ul class="simple">
+<li><p><strong>HTTP Method</strong>
+- Http GET Method</p></li>
+<li><p><strong>Response Codes</strong>
+- A healthy response returns 200 OK status code.
+- An unhealthy response returns 500 Internal Server Error.</p></li>
+<li><p><strong>Response Body</strong>
+- A healthy response looks like: “version”: “1.0.0”.
+- An unhealthy response might include details about the error, e.g., “status”: “Error”, “message”: “Internal server error”.</p></li>
 </ul>
-</dd>
-<dt class="field-even">Carti preferate<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p>Dezvoltare personala</p></li>
-<li><p>Programare</p></li>
+</section>
+<section id="message-route">
+<h2><em>/message</em> route<a class="headerlink" href="#message-route" title="Link to this heading"></a></h2>
+<p><strong>Connects to OpenAI API and is used to answer to questions</strong></p>
+<ul class="simple">
+<li><p><strong>HTTP Method</strong>
+- Http POST Method</p></li>
+<li><p><strong>Response Codes</strong>
+- A healthy response returns 200 OK status code.
+- An unhealthy response returns 500 Internal Server Error.</p></li>
+<li><p><strong>Response Body</strong>
+- A healthy response looks like: “message”: “Response”.
+- An unhealthy response might include details about the error, e.g., “status”: “Error”, “message”: “Internal server error”.</p></li>
 </ul>
-</dd>
-</dl>
 </section>
 </section>
 
@@ -120,7 +130,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Sergiu.</p>
+    <p>&#169; Copyright .</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

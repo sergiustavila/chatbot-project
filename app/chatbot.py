@@ -5,7 +5,7 @@ import openai
 app = Flask(__name__)
 
 # Set OpenAI API key
-openai.api_key = "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"
+openai.api_key = "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"
 
 @app.route("/message", methods=["POST"])
 def send_message():

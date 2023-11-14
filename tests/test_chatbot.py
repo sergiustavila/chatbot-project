@@ -1,4 +1,5 @@
 """ Unit tests docstring """
+import os
 import pytest
 from app.chatbot import app
 
@@ -12,6 +13,8 @@ def api_client():
 #pylint: disable=W0621
 def test_send_message(api_client, mocker):
     """ Test send message to OpenAI """
+    mocker.patch.dict(os.environ, {"OPENAI_API_KEY": "your_fake_api_key"})
+
     # Mock OpenAI API call
     mock_openai_create = mocker.patch("openai.chat.completions.create")
     mock_openai_create.return_value = {"choices": [{"message": {"content": "Mocked response"}}]}

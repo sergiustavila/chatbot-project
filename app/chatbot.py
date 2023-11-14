@@ -1,11 +1,12 @@
 """ Module docstring """
+import os
 from flask import Flask, jsonify, request
 import openai
 
 app = Flask(__name__)
 
 # Set OpenAI API key
-openai.api_key = "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"
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 @app.route("/message", methods=["POST"])
 def send_message():

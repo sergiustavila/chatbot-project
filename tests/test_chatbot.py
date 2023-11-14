@@ -10,6 +10,29 @@ def api_client():
         yield client
 
 #pylint: disable=W0621
+def test_send_message(api_client, mocker):
+    """ Test send message to OpenAI """
+    # Mock OpenAI API call
+    mock_openai_create = mocker.patch("openai.chat.completions.create")
+    mock_openai_create.return_value = {"choices": [{"message": {"content": "Mocked response"}}]}
+
+    # Send a message using the /message endpoint
+    response = api_client.post("/message", json={"message": "Test message"})
+
+    assert response.status_code == 200
+    assert "response" in response.json
+    assert response.json["response"] == "Mocked response"
+
+    # Verify that the OpenAI API was called with the expected arguments
+    mock_openai_create.assert_called_once_with(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": "Test message"},
+        ],
+    )
+
+#pylint: disable=W0621
 def test_health_root(api_client):
     """Function docstring"""
     response = api_client.get("/healthcheck")

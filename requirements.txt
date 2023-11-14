@@ -5,6 +5,7 @@ pytest
 mypy
 coverage
 black
+pytest-mock
 
 # doc ops dependencies
 sphinx

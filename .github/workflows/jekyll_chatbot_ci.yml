@@ -41,6 +41,7 @@ jobs:
         mypy $(git ls-files '*.py')
         pytest .
         coverage run -m pytest
+        coverage report -m
     - name: Setup Docs Page
       uses: actions/configure-pages@v3
     - name: Build with Jekyll

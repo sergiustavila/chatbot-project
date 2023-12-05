@@ -42,8 +42,6 @@ jobs:
         pytest .
         coverage run -m pytest
         coverage report -m
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v2
 
   # Deployment job
   deploy:

@@ -18,7 +18,6 @@ OpenAI ChatBot API documentation!
 - **Response Codes**
   - A healthy response returns 200 OK status code.
   - An unhealthy response returns 500 Internal Server Error.
-  - Test
 
 - **Response Body**
   - A healthy response looks like: "status": "Chatbot is healthy".
